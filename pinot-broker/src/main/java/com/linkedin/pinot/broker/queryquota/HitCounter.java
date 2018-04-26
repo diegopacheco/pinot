@@ -16,9 +16,7 @@
 package com.linkedin.pinot.broker.queryquota;
 
 import com.google.common.annotations.VisibleForTesting;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
-import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicLongArray;
 
 
@@ -35,8 +33,8 @@ public class HitCounter {
   private final AtomicLongArray _bucketStartTime;
   private AtomicIntegerArray _bucketHitCount;
 
-  public HitCounter(int timeRangeInSecond) {
-    _timeBucketWidthMs = timeRangeInSecond * 1000 / BUCKET_COUNT;
+  public HitCounter(int timeRangeInSeconds) {
+    _timeBucketWidthMs = timeRangeInSeconds * 1000 / BUCKET_COUNT;
     _bucketStartTime = new AtomicLongArray(BUCKET_COUNT);
     _bucketHitCount = new AtomicIntegerArray(BUCKET_COUNT);
   }
